@@ -30,11 +30,12 @@ export class MyDurableObject extends DurableObject<Env> {
 		this.name = name
 
 		this.log(`Hi from now.`)
-		for (let i = 1; i <= 200; i++) {
-			setTimeout(() => {
-				this.log(`Hi from ${i * 5} seconds ago.`)
-			}, i * 5_000)
-		}
+		const loop = (i: number) => {
+			this.log(`Hi from ${i * 5} seconds ago.`)
+			setTimeout(() => loop(i+1), 5_000)
+		};
+		setTimeout(() => loop(1), 5_000)
+		
 		return `Hello, ${who}!`
 	}
 
