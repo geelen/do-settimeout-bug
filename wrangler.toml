@@ -58,6 +58,12 @@ class_name = "MyDurableObject"
 [[migrations]]
 tag = "v1"
 new_classes = ["MyDurableObject"]
+[[migrations]]
+tag = "v2"
+new_classes = ["LoggingObject"]
+[[migrations]]
+tag = "v3"
+deleted_classes = ["LoggingObject"]
 
 # Bind a Hyperdrive configuration. Use to accelerate access to your existing databases from Cloudflare Workers.
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#hyperdrive
